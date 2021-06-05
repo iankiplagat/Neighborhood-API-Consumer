@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { BusinessComponent } from './components/business/business/business.component';
 import { NeighborhoodComponent } from './components/neighborhood/neighborhood/neighborhood.component';
 import { PostsComponent } from './components/posts/posts/posts.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BusinessComponent,
     NeighborhoodComponent,
-    PostsComponent
+    PostsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
