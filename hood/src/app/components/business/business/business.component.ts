@@ -1,6 +1,6 @@
 import { Business } from './../../../interfaces/business/business';
 import { BusinessService } from './../../../services/business/business.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
