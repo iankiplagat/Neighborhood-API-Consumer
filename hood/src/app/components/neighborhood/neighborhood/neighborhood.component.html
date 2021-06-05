@@ -1,1 +1,10 @@
 <p>neighborhood works!</p>
+<button (click)="findNeighborhood()">Click me</button>
+
+<div *ngIf="neighborhood.length>0">
+<ul *ngFor="let hood of hood">
+  <li>name:{{hood.name}}</li>
+  <li>hood desc: {{hood.hood_desc}}</li>
+  <li>location: {{hood.location}}</li>
+</ul>
+</div>

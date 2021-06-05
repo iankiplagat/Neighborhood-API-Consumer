@@ -13,7 +13,7 @@ export class NeighborhoodService {
   constructor(private http: HttpClient) {
 
    }
-   fetchHoodApi(): Observable<Neighborhood[]>{
+   fetchNeighborhoodApi(): Observable<Neighborhood[]>{
      return this.http.get<Neighborhood[]>(this.url);
 
    }

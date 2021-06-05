@@ -16,8 +16,8 @@ export class NeighborhoodComponent implements OnInit {
    }
 
    // tslint:disable-next-line: typedef
-   findHood(){
-     this.neighborhoodservice.fetchHoodApi().subscribe(
+   findNeighborhood(){
+     this.neighborhoodservice.fetchNeighborhoodApi().subscribe(
        (res) => {
           this.neighborhood = res;
 
