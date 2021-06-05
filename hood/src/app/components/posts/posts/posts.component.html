@@ -1,5 +1,5 @@
-<p>posts works!</p>
-<button (click)="findPosts()">Posts</button>
+<h3>Posts</h3>
+<button class="btb btn-outline-info p-1" (click)="findPosts()">Posts</button>
 
 <div *ngIf="posts.length>0">
   <ul *ngFor="let post of posts">
