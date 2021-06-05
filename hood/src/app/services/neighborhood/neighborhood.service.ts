@@ -1,3 +1,6 @@
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Neighborhood } from './../../interfaces/neighborhood/neighborhood';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +8,14 @@ import { Injectable } from '@angular/core';
 })
 export class NeighborhoodService {
 
-  constructor() { }
+  url = 'http://127.0.0.1:8000/api/hood/';
+
+  constructor(private http: HttpClient) {
+
+   }
+   fetchHoodApi(): Observable<Neighborhood[]>{
+     return this.http.get<Neighborhood[]>(this.url);
+
+   }
+
 }
