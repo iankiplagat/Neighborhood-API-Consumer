@@ -1,3 +1,6 @@
+import { HttpClient } from '@angular/common/http';
+import { NeighborhoodService } from './../../../services/neighborhood/neighborhood.service';
+import { Neighborhood } from './../../../interfaces/neighborhood/neighborhood';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NeighborhoodComponent implements OnInit {
 
-  constructor() { }
+  neighborhood: Neighborhood[] = [];
+
+  constructor(private neighborhoodservice: NeighborhoodService, private http: HttpClient) {
+   }
+
+   // tslint:disable-next-line: typedef
+   findHood(){
+     this.neighborhoodservice.fetchHoodApi().subscribe(
+       (res) => {
+          this.neighborhood = res;
+
+     }, error => {
+       console.error(error);
+     }
+     );
+   }
 
   ngOnInit(): void {
   }
 
 }
+
