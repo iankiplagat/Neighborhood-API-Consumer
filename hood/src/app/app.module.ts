@@ -8,8 +8,9 @@ import { BusinessComponent } from './components/business/business/business.compo
 import { NeighborhoodComponent } from './components/neighborhood/neighborhood/neighborhood.component';
 import { PostsComponent } from './components/posts/posts/posts.component';
 import { AboutComponent } from './components/about/about.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NeighborhoodComponent,
     PostsComponent,
     AboutComponent,
+    NotFoundComponent,
+    HomepageComponent,
     NavbarComponent,
-    NotFoundComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
