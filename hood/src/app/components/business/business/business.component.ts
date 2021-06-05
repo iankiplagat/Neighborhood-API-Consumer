@@ -13,16 +13,17 @@ export class BusinessComponent implements OnInit {
   business: Business[] = [];
   constructor(private http: HttpClient, private businessservice: BusinessService) { }
 
-  // findBusiness() {
-  //   this.businessservice.fetchBusiness().subscribe(
-  //     (res) => {
-  //       this.business = res;
+  // tslint:disable-next-line: typedef
+  findBusiness() {
+    this.businessservice.fetchBusiness().subscribe(
+      (res) => {
+        this.business = res;
 
-  //     }, error => {
-  //       console.error(error);
-  //     }
-  //   );
-  // }
+      }, error => {
+        console.error(error);
+      }
+    );
+  }
   ngOnInit(): void {
   }
 
