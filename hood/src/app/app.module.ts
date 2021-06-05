@@ -9,6 +9,7 @@ import { NeighborhoodComponent } from './components/neighborhood/neighborhood/ne
 import { PostsComponent } from './components/posts/posts/posts.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NeighborhoodComponent,
     PostsComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
