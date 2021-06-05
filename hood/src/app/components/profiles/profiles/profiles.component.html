@@ -1,1 +1,12 @@
-<p>profiles works!</p>
+<h3>User Profile</h3>
+<button (click)="findProfiles()">profile</button>
+
+<div *ngIf="profile.length>0">
+  <ul *ngFor="let profile of profile">
+    <li>name:{{profile.name}}</li>
+    <li>profile_pic:{{profile.profile_pic}}</li>
+    <li>email:{{profile.email}}</li>
+    <li>user:{{profile.user}}</li>
+    <li>neighborhood:{{profile.neighborhood}}</li>
+  </ul>
+</div>
