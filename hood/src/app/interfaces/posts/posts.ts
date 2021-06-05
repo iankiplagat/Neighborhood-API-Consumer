@@ -4,5 +4,5 @@ export interface Posts {
   post_content: string;
   pub_date: any;
   profile: any;
-  hood: any;
+  neighborhood: any;
 }
