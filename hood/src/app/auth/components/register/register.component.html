@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 mt-4">
+    <h3>
+      <strong>Create Account</strong>
+      <form #register="ngForm" (ngSubmit)="onSubmit(register)" method="POST">
+        <div class="mb-3">
+          <label for="RegisterUsername" class="form-label">Username</label>
+          <input
+            name="username"
+            ngModel
+            required
+            #username="ngModel"
+            type="text"
+            class="form-control"
+            id="loginUsername"
+            placeholder="Enter username"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="RegisterEmail" class="form-label">Email</label>
+          <input
+            name="email"
+            ngModel
+            required
+            #email="ngModel"
+            type="email"
+            class="form-control"
+            id="loginEmail"
+            placeholder="Email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="RegisterPassword" class="form-label">Password</label>
+          <input
+            name="password"
+            ngModel
+            required
+            #password="ngModel"
+            type="password"
+            class="form-control"
+            id="registerUsername"
+            placeholder="Password"
+          />
+        </div>
+
+        <button type="submit" [disabled]="register.invalid" class="btn btn-info">
+          Register <i class="fas fa-sign-in-alt"></i>
+        </button>
+      </form>
+    </h3>
+  </div>
+</div>

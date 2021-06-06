@@ -8,6 +8,8 @@ import { NeighborhoodComponent } from './components/neighborhood/neighborhood/ne
 import { BusinessComponent } from './components/business/business/business.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ProfilesComponent } from './components/profiles/profiles/profiles.component';
+import { LoginComponent } from './auth/components/login/login.component';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full'},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: 'posts', component: PostsComponent},
   {path: 'profile', component: ProfilesComponent},
   {path: 'about', component: AboutComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 
   { path: '**', component: NotFoundComponent},
 ];

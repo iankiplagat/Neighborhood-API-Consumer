@@ -1,12 +1,114 @@
-<h3>User Profile</h3>
-<button (click)="findProfiles()">profile</button>
+<div class="container justify-content-center">
+  <h3 class="text-center pt-5" style="text-decoration: underline">
+    <strong>User Profile</strong>
+  </h3>
+  <div class="mt-5">
+    <p>Click the button to view all users</p>
+    <button class="btb btn-outline-info p-1" (click)="findProfiles()">
+      Users
+    </button>
+  </div>
 
-<div *ngIf="profile.length>0">
-  <ul *ngFor="let profile of profile">
-    <li>name:{{profile.name}}</li>
-    <li>profile_pic:{{profile.profile_pic}}</li>
-    <li>email:{{profile.email}}</li>
-    <li>user:{{profile.user}}</li>
-    <li>neighborhood:{{profile.neighborhood}}</li>
-  </ul>
+  <div class="row">
+    <div *ngIf="profile.length > 0">
+      <div class="col-md-6">
+        <div class="card mt-5 p-3 mb-5" *ngFor="let profile of profile">
+          <li class="list pb-3">
+            <strong>{{ profile.name }}</strong>
+          </li>
+          <li class="list"><em>Avatar</em>: {{ profile.profile_pic }}</li>
+          <li class="list"><em>Email</em>: {{ profile.email }}</li>
+          <li class="list"><em>User Id</em>: {{ profile.user }}</li>
+          <li class="list">
+            <em>Neighborhood</em>: {{ profile.neighborhood }}
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="margs mt-5 mb-5 col-md-8">
+    <div class="form-group">
+      <form
+      #updateProfile="ngForm"
+      (ngSubmit)="updateProfile(updateProfile.value.id, updateProfile.value)"
+      method="POST"
+      class="form-control p-3"
+    >
+      <h5 class="card text-center mb-3">
+        <strong>Update User profile</strong>
+      </h5>
+      <div class="mb-3">
+        <label for="user_id" class="form-label">User profile Id</label>
+        <input
+          class="form-control"
+          id="user_id"
+          type="number"
+          name="id"
+          ngModel
+          placeholder="Profile Id"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          ngModel
+          placeholder="Username"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Profile Picture</label>
+        <input
+          type="text"
+          class="form-control"
+          id="profile_pic"
+          name="profile_pic"
+          ngModel
+          placeholder="Profile pic"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          ngModel
+          placeholder="Enter Email"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="profile" class="form-label">User profile</label>
+        <input
+          class="form-control"
+          id="user"
+          type="number"
+          name="user"
+          ngModel
+          placeholder="user"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="hood" class="form-label">Neighborhood</label>
+        <input
+          class="form-control"
+          id="hood"
+          type="number"
+          name="neighborhood"
+          ngModel
+          placeholder="Neighborhood"
+        /><br />
+      </div>
+
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+    </div>
+  </div>
 </div>

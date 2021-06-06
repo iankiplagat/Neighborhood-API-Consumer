@@ -13,6 +13,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfilesComponent } from './components/profiles/profiles/profiles.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,9 @@ import { ProfilesComponent } from './components/profiles/profiles/profiles.compo
     HomepageComponent,
     NavbarComponent,
     ProfilesComponent,
+    FooterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, AuthModule],
   providers: [],
   bootstrap: [AppComponent],
 })

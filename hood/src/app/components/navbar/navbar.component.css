@@ -3,4 +3,10 @@
   font-weight: bolder;
 }
 
+.navbar {
+  border-bottom: 1px solid #e6eaea;
+}
 
+.d-flex {
+  margin-right: 35px;
+}

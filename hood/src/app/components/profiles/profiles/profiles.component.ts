@@ -24,6 +24,13 @@ export class ProfilesComponent implements OnInit {
       }
     );
   }
+  // tslint:disable-next-line: typedef
+  updateProfile(id: any, profile: Profile) {
+    this.profileservice.update(id, profile).subscribe((result) => {
+      console.warn('result', result);
+    });
+    console.warn(id);
+  }
 
   ngOnInit(): void {
   }

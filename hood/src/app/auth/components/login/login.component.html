@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 mt-4">
+    <h3>
+      <strong>Login Page</strong>
+      <form #login="ngForm" (ngSubmit)="onSubmit(login)" method="POST">
+        <div class="mb-3">
+          <label for="LoginUsername" class="form-label">Username</label>
+          <input
+            name="username"
+            ngModel
+            required
+            #username="ngModel"
+            type="text"
+            class="form-control"
+            id="loginUsername"
+            placeholder="Enter username"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="LoginPassword" class="form-label">Password</label>
+          <input
+            name="password"
+            ngModel
+            required
+            #password="ngModel"
+            type="password"
+            class="form-control"
+            id="loginPassword"
+            placeholder="Password"
+          />
+        </div>
+
+        <button type="submit" [disabled]="login.invalid" class="btn btn-info">
+          Login <i class="fas fa-sign-in-alt"></i>
+        </button>
+      </form>
+    </h3>
+  </div>
+</div>
