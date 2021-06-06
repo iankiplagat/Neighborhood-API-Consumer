@@ -8,3 +8,11 @@
   <li>location: {{neighborhood.location}}</li>
 </ul>
 </div>
+
+<form #neighborhoodPost="ngForm" (ngSubmit)="onSubmit(neighborhoodPost.value)" method="POST">
+  <input type="text" name="name" ngModel placeholder="neighborhood name"><br>
+  <input type="text" name="neighborhood_desc" ngModel placeholder="neighborhood description"><br>
+  <input type="text" name="location" ngModel placeholder="location"><br>
+
+  <button type="submit">Add Neighborhood</button>
+</form>

@@ -14,4 +14,8 @@ export class BusinessService {
   fetchBusiness(): Observable<Business[]>{
     return this.http.get<Business[]>(this.url);
   }
+  // tslint:disable-next-line: typedef
+  create(business: any) {
+    return this.http.post(this.url, business);
+  }
 }

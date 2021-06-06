@@ -5,7 +5,18 @@
   <ul *ngFor="let business of business">
     <li>business name:{{business.name}}</li>
     <li>business desc: {{business.business_desc}}</li>
+    <li>business email: {{business.business_email}}</li>
     <li>profile: {{business.profile}}</li>
     <li>hood: {{business.neighborhood}}</li>
   </ul>
 </div>
+
+<form #businessPost="ngForm" (ngSubmit)="onSubmit(businessPost.value)" method="POST">
+  <input type="text" name="name" ngModel placeholder="business name"><br>
+  <input type="text" name="business_desc" ngModel placeholder="description"><br>
+  <input type="email" name="business_email" ngModel placeholder="business_email"><br>
+  <input type="text" name="profile" ngModel placeholder="profile num"><br>
+  <input type="text" name="neighborhood" ngModel placeholder="Neighborhood num"><br>
+
+  <button type="submit">Add business</button>
+</form>

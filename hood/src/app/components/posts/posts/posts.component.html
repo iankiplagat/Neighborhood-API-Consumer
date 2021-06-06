@@ -1,12 +1,42 @@
-<h3>Posts</h3>
-<button class="btb btn-outline-info p-1" (click)="findPosts()">Posts</button>
+<div class="container justify-content-center">
+  <h3 class="text-center pt-5" style="text-decoration: underline;">Posts</h3>
+  <button class="btb btn-outline-info p-1" (click)="findPosts()">Posts</button>
 
-<div *ngIf="posts.length>0">
-  <ul *ngFor="let post of posts">
-    <li>post name:{{post.post_name}}</li>
-    <li>post content: {{post.post_content}}</li>
-    <li>pub date: {{post.pub_date}}</li>
-    <li>profile: {{post.profile}}</li>
-    <li>neighborhood: {{post.neighborhood}}</li>
-  </ul>
+  <div class="row">
+    <div *ngIf="posts.length > 0">
+      <div class="col-md-6">
+        <div class="card mt-5 p-3 mb-5" *ngFor="let post of posts">
+          <li class="list text-center pb-3">
+            <strong>{{ post.post_name }}</strong>
+          </li>
+          <li class="list"><em>post content</em>: {{ post.post_content }}</li>
+          <li class="list"><em>pub date</em>: {{ post.pub_date | date }}</li>
+          <li class="list"><em>profile</em>: {{ post.profile }}</li>
+          <li class="list"><em>neighborhood</em>: {{ post.neighborhood }}</li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form #postsPost="ngForm" (ngSubmit)="onSubmit(postsPost.value)" method="POST">
+    <input type="text" name="post_name" ngModel placeholder="post name"><br>
+    <input type="text" name="post_content" ngModel placeholder="post_content"><br>
+    <input type="text" name="profile" ngModel placeholder="profile"><br>
+    <input type="text" name="neighborhood" ngModel placeholder="neighborhood"><br>
+
+    <button type="submit">Add Posts</button>
+  </form>
+
+  <!-- <p>Update Post</p>
+  <form #updateposts="ngForm" (ngSubmit)="updatePosts(updateposts.value.id,updateposts.value)" method="POST">
+    <input type="number" name="id" ngModel placeholder="id"><br>
+    <input type="text" name="post_name" ngModel placeholder="post name"><br>
+    <input type="text" name="post_content" ngModel placeholder="post_content"><br>
+    <input type="text" name="profile" ngModel placeholder="profile"><br>
+    <input type="text" name="hood" ngModel placeholder="hood"><br>
+
+    <button type="submit">updateProfile</button>
+  </form> -->
+
+
 </div>

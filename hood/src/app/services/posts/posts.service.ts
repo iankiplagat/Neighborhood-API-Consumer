@@ -16,4 +16,8 @@ export class PostsService {
     return this.http.get<Posts[]>(this.url);
 
   }
+  // tslint:disable-next-line: typedef
+  create(posts: any) {
+    return this.http.post(this.url, posts);
+  }
 }

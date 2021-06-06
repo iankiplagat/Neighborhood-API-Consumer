@@ -1,5 +1,13 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+html,
+body {
+  scroll-behavior: smooth;
+  font-family: "Playfair Display", serif;
+}
+
 * {
 
   box-sizing: border-box;
@@ -17,3 +25,15 @@
   line-height: 1.4;
 
   }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  li.list { border-bottom: 1px solid #eee; font-size: 14px; list-style: none; padding: 10px 0 10px 10px; position: relative; }
+

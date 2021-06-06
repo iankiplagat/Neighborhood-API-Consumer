@@ -25,6 +25,20 @@ export class PostsComponent implements OnInit {
     );
   }
 
+  // tslint:disable-next-line: typedef
+  onSubmit(posts: any) {
+    this.postservice.create(posts).subscribe((result) => {
+      console.warn('result', result);
+    });
+    console.warn(posts);
+  }
+  // tslint:disable-next-line: typedef
+  // updatePosts(id: any, posts: Posts) {
+  //   this.postservice.update(id, posts).subscribe((result) => {
+  //     console.warn('result', result);
+  //   });
+  //   console.warn(id);
+  // }
   ngOnInit(): void {
   }
 

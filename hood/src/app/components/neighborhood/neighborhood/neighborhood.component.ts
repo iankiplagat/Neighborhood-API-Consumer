@@ -26,6 +26,13 @@ export class NeighborhoodComponent implements OnInit {
      }
      );
    }
+   // tslint:disable-next-line: typedef
+   onSubmit(neighborhood: any) {
+    this.neighborhoodservice.create(neighborhood).subscribe((result) => {
+      console.warn('result', result);
+    });
+    console.warn(neighborhood);
+  }
 
   ngOnInit(): void {
   }

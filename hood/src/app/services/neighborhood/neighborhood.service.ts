@@ -17,5 +17,9 @@ export class NeighborhoodService {
      return this.http.get<Neighborhood[]>(this.url);
 
    }
+   // tslint:disable-next-line: typedef
+   create(neighborhood: any) {
+    return this.http.post(this.url, neighborhood);
+  }
 
 }
