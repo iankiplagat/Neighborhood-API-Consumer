@@ -1,28 +1,144 @@
-<h3>Neighborhoods</h3>
-<button class="btb btn-outline-info p-1" (click)="findNeighborhood()">Neighborhoods</button>
+<div class="container justify-content-center">
+  <h3 class="text-center pt-5" style="text-decoration: underline">
+    Neighborhoods
+  </h3>
+  <div class="mt-5">
+    <p>Click the button to view all neighborhoods</p>
+    <button class="btb btn-outline-info p-1" (click)="findNeighborhood()">
+      Neighborhoods
+    </button>
+  </div>
 
-<div *ngIf="neighborhood.length>0">
-<ul *ngFor="let neighborhood of neighborhood">
-  <li>name:{{neighborhood.name}}</li>
-  <li>neighborhood desc: {{neighborhood.neighborhood_desc}}</li>
-  <li>location: {{neighborhood.location}}</li>
-</ul>
+  <div class="row">
+    <div *ngIf="neighborhood.length > 0">
+      <div class="col-md-6">
+        <div
+          class="card mt-5 p-3 mb-5"
+          *ngFor="let neighborhood of neighborhood"
+        >
+          <li class="list pb-3">
+            <strong>{{ neighborhood.name }}</strong>
+          </li>
+          <li class="list">
+            <em>Description</em>: {{ neighborhood.neighborhood_desc }}
+          </li>
+          <li class="list">
+            <em>General Location</em>: {{ neighborhood.location }}
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <div class="margs mt-5 mb-5 col-md-8">
+    <form
+      #neighborhoodPost="ngForm"
+      (ngSubmit)="onSubmit(neighborhoodPost.value)"
+      method="POST"
+      class="form-control p-3"
+    >
+      <h5 class="card text-center mb-3">
+        <strong>Add a new neighborhood</strong>
+      </h5>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          ngModel
+          placeholder="Neighborhood name"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">About</label>
+        <input
+          class="form-control"
+          id="description"
+          type="text"
+          name="neighborhood_desc"
+          ngModel
+          placeholder="Description"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">General Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="content"
+          name="location"
+          ngModel
+          placeholder="Location"
+        /><br />
+      </div>
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+
+  <div class="margs mt-5 mb-5 col-md-8">
+    <form
+      #updateneighborhood="ngForm"
+      (ngSubmit)="
+        updateneighborHood(
+          updateneighborhood.value.id,
+          updateneighborhood.value
+        )
+      "
+      method="POST"
+      class="form-control p-3"
+    >
+      <h5 class="card text-center mb-3">
+        <strong>Update Neighborhood</strong>
+      </h5>
+      <div class="mb-3">
+        <label for="neighborhood_id" class="form-label">Neighborhood Id</label>
+        <input
+          class="form-control"
+          id="post_id"
+          type="number"
+          name="id"
+          ngModel
+          placeholder="Neighborhood Id"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Neighborhood Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          ngModel
+          placeholder="Hood name"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">About Neighborhood</label>
+        <input
+          type="text"
+          class="form-control"
+          id="content"
+          name="neighborhood_desc"
+          ngModel
+          placeholder="Description"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">General Location</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="text"
+          name="location"
+          ngModel
+          placeholder="Location"
+        /><br />
+      </div>
+
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
 </div>
-
-<form #neighborhoodPost="ngForm" (ngSubmit)="onSubmit(neighborhoodPost.value)" method="POST">
-  <input type="text" name="name" ngModel placeholder="neighborhood name"><br>
-  <input type="text" name="neighborhood_desc" ngModel placeholder="neighborhood description"><br>
-  <input type="text" name="location" ngModel placeholder="location"><br>
-
-  <button type="submit">Add Neighborhood</button>
-</form>
-
-<h4>Update Neighborhood</h4>
-<form #updateneighborhood="ngForm" (ngSubmit)="updateneighborHood(updateneighborhood.value.id,updateneighborhood.value)" method="POST">
-  <input type="number" name="id" ngModel placeholder="id"><br>
-  <input type="text" name="name" ngModel placeholder="hood name"><br>
-  <input type="text" name="neighborhood_desc" ngModel placeholder="Description"><br>
-  <input type="text" name="location" ngModel placeholder="location"><br>
-
-  <button type="submit">Update</button>
-</form>

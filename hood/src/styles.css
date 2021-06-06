@@ -37,3 +37,8 @@ body {
 
   li.list { border-bottom: 1px solid #eee; font-size: 14px; list-style: none; padding: 10px 0 10px 10px; position: relative; }
 
+.margs
+{
+  margin-left: auto;
+  margin-right: auto;
+}

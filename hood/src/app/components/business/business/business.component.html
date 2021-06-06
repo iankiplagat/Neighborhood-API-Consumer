@@ -1,34 +1,179 @@
-<h3>Businesses</h3>
-<button class="btb btn-outline-info p-1" (click)="findBusiness()">Businesses</button>
+<div class="container justify-content-center">
+  <h3 class="text-center pt-5" style="text-decoration: underline">
+    Businesses
+  </h3>
+  <div class="mt-5">
+    <p>Click the button to view all businesses</p>
+    <button class="btb btn-outline-info p-1" (click)="findBusiness()">
+      Businesses
+    </button>
+  </div>
 
-<div *ngIf="business.length>0">
-  <ul *ngFor="let business of business">
-    <li>business name:{{business.name}}</li>
-    <li>business desc: {{business.business_desc}}</li>
-    <li>business email: {{business.business_email}}</li>
-    <li>profile: {{business.profile}}</li>
-    <li>hood: {{business.neighborhood}}</li>
-  </ul>
+  <div class="row">
+    <div *ngIf="business.length > 0">
+      <div class="col-md-6">
+        <div class="card mt-5 p-3 mb-5" *ngFor="let business of business">
+          <li class="list pb-3">
+            <strong>{{ business.name }}</strong>
+          </li>
+          <li class="list">
+            <em>About Business</em>: {{ business.business_desc }}
+          </li>
+          <li class="list"><em>Email</em>: {{ business.business_email }}</li>
+          <li class="list"><em>Profile</em>: {{ business.profile }}</li>
+          <li class="list">
+            <em>Neighborhood</em>: {{ business.neighborhood }}
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <div class="margs mt-5 mb-5 col-md-8">
+    <form
+      #businessPost="ngForm"
+      (ngSubmit)="onSubmit(businessPost.value)"
+      method="POST"
+      class="form-control p-3"
+    >
+      <h5 class="card text-center mb-3"><strong>Add a Business</strong></h5>
+      <div class="mb-3">
+        <label for="name" class="form-label">Business Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          ngModel
+          placeholder="Name"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">About Business</label>
+        <input
+          type="text"
+          class="form-control"
+          id="business_desc"
+          name="business_desc"
+          ngModel
+          placeholder="Description"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="profile" class="form-label">Email</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="email"
+          name="business_email"
+          ngModel
+          placeholder="Email"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="hood" class="form-label">Business Owner</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="text"
+          name="profile"
+          ngModel
+          placeholder="User profile"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="neighborhood" class="form-label">Location</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="text"
+          name="neighborhood"
+          ngModel
+          placeholder="Neighborhood Id"
+        /><br />
+      </div>
+
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+
+  <div class="margs mt-5 mb-5 col-md-8">
+    <form
+    #updatebusiness="ngForm"
+    (ngSubmit)="updateBusiness(updatebusiness.value.id, updatebusiness.value)"
+    method="POST"
+      class="form-control p-3"
+    >
+      <h5 class="card text-center mb-3"><strong>Update Business</strong></h5>
+      <div class="mb-3">
+        <label for="business_id" class="form-label">Business Id</label>
+        <input
+          class="form-control"
+          id="id"
+          type="number"
+          name="id"
+          ngModel
+          placeholder="Business Id"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Business Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          ngModel
+          placeholder="Name"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">About Business</label>
+        <input
+          type="text"
+          class="form-control"
+          id="business_desc"
+          name="business_desc"
+          ngModel
+          placeholder="Description"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="profile" class="form-label">Email</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="email"
+          name="business_email"
+          ngModel
+          placeholder="Email"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="hood" class="form-label">Business Owner</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="text"
+          name="profile"
+          ngModel
+          placeholder="User profile"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="neighborhood" class="form-label">Location</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="text"
+          name="neighborhood"
+          ngModel
+          placeholder="Neighborhood Id"
+        /><br />
+      </div>
+
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
 </div>
-
-<form #businessPost="ngForm" (ngSubmit)="onSubmit(businessPost.value)" method="POST">
-  <input type="text" name="name" ngModel placeholder="business name"><br>
-  <input type="text" name="business_desc" ngModel placeholder="description"><br>
-  <input type="email" name="business_email" ngModel placeholder="business_email"><br>
-  <input type="text" name="profile" ngModel placeholder="profile num"><br>
-  <input type="text" name="neighborhood" ngModel placeholder="Neighborhood num"><br>
-
-  <button type="submit">Add business</button>
-</form>
-
-<h4>Update Business</h4>
-<form #updatebusiness="ngForm" (ngSubmit)="updateBusiness(updatebusiness.value.id,updatebusiness.value)" method="POST">
-  <input type="number" name="id" ngModel placeholder="id"><br>
-  <input type="text" name="name" ngModel placeholder="business name"><br>
-  <input type="text" name="business_desc" ngModel placeholder="description"><br>
-  <input type="email" name="business_email" ngModel placeholder="business_email"><br>
-  <input type="text" name="profile" ngModel placeholder="profile num"><br>
-  <input type="text" name="neighborhood" ngModel placeholder="Neighborhood num"><br>
-
-  <button type="submit">Update</button>
-</form>

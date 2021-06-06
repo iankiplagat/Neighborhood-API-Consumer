@@ -1,12 +1,17 @@
 <div class="container justify-content-center">
-  <h3 class="text-center pt-5" style="text-decoration: underline;">Posts</h3>
-  <button class="btb btn-outline-info p-1" (click)="findPosts()">Posts</button>
+  <h3 class="text-center pt-5" style="text-decoration: underline">Posts</h3>
+  <div class="mt-5">
+    <p>Click the button to view all posts</p>
+    <button class="btb btn-outline-info p-1" (click)="findPosts()">
+      Posts
+    </button>
+  </div>
 
   <div class="row">
     <div *ngIf="posts.length > 0">
       <div class="col-md-6">
         <div class="card mt-5 p-3 mb-5" *ngFor="let post of posts">
-          <li class="list text-center pb-3">
+          <li class="list pb-3">
             <strong>{{ post.post_name }}</strong>
           </li>
           <li class="list"><em>post content</em>: {{ post.post_content }}</li>
@@ -18,25 +23,130 @@
     </div>
   </div>
 
-  <form #postsPost="ngForm" (ngSubmit)="onSubmit(postsPost.value)" method="POST">
-    <input type="text" name="post_name" ngModel placeholder="post name"><br>
-    <input type="text" name="post_content" ngModel placeholder="post_content"><br>
-    <input type="text" name="profile" ngModel placeholder="profile"><br>
-    <input type="text" name="neighborhood" ngModel placeholder="neighborhood"><br>
+  <hr />
+  <div class="margs mt-5 mb-5 col-md-8">
+    <form
+      #postsPost="ngForm"
+      (ngSubmit)="onSubmit(postsPost.value)"
+      method="POST"
+      class="form-control p-3"
+    >
+    <h5 class="card text-center mb-3"><strong>Add a new post</strong></h5>
+      <div class="mb-3">
+        <label for="name" class="form-label">Post Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="post_name"
+          ngModel
+          placeholder="post name"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">Post</label>
+        <input
+          type="text"
+          class="form-control"
+          id="content"
+          name="post_content"
+          ngModel
+          placeholder="post_content"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="profile" class="form-label">User profile</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="text"
+          name="profile"
+          ngModel
+          placeholder="profile"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="hood" class="form-label">Neighborhood</label>
+        <input
+          class="form-control"
+          id="hood"
+          type="text"
+          name="neighborhood"
+          ngModel
+          placeholder="neighborhood"
+        /><br />
+      </div>
 
-    <button type="submit">Add Posts</button>
-  </form>
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
 
-  <p>Update Post</p>
-  <form #updateposts="ngForm" (ngSubmit)="updatePosts(updateposts.value.id,updateposts.value)" method="POST">
-    <input type="number" name="id" ngModel placeholder="id"><br>
-    <input type="text" name="post_name" ngModel placeholder="post name"><br>
-    <input type="text" name="post_content" ngModel placeholder="post_content"><br>
-    <input type="text" name="profile" ngModel placeholder="profile"><br>
-    <input type="text" name="neighborhood" ngModel placeholder="neighborhood"><br>
+  <div class="margs mt-5 mb-5 col-md-8">
+    <form
+      #updateposts="ngForm"
+      (ngSubmit)="updatePosts(updateposts.value.id, updateposts.value)"
+      method="POST"
+      class="form-control p-3"
+    >
+      <h5 class="card text-center mb-3"><strong>Update a post</strong></h5>
+      <div class="mb-3">
+        <label for="post_id" class="form-label">Post Id</label>
+        <input
+          class="form-control"
+          id="post_id"
+          type="number"
+          name="id"
+          ngModel
+          placeholder="Post Id"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Post Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="post_name"
+          ngModel
+          placeholder="post name"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">Post</label>
+        <input
+          type="text"
+          class="form-control"
+          id="content"
+          name="post_content"
+          ngModel
+          placeholder="post_content"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="profile" class="form-label">User profile</label>
+        <input
+          class="form-control"
+          id="profile"
+          type="text"
+          name="profile"
+          ngModel
+          placeholder="profile"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="hood" class="form-label">Neighborhood</label>
+        <input
+          class="form-control"
+          id="hood"
+          type="text"
+          name="neighborhood"
+          ngModel
+          placeholder="neighborhood"
+        /><br />
+      </div>
 
-    <button type="submit">Update</button>
-  </form>
-
+      <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+  </div>
 
 </div>
