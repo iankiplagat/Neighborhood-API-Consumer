@@ -16,3 +16,13 @@
 
   <button type="submit">Add Neighborhood</button>
 </form>
+
+<h4>Update Neighborhood</h4>
+<form #updateneighborhood="ngForm" (ngSubmit)="updateneighborHood(updateneighborhood.value.id,updateneighborhood.value)" method="POST">
+  <input type="number" name="id" ngModel placeholder="id"><br>
+  <input type="text" name="name" ngModel placeholder="hood name"><br>
+  <input type="text" name="neighborhood_desc" ngModel placeholder="Description"><br>
+  <input type="text" name="location" ngModel placeholder="location"><br>
+
+  <button type="submit">Update</button>
+</form>

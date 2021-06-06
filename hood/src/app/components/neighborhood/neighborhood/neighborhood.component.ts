@@ -33,6 +33,13 @@ export class NeighborhoodComponent implements OnInit {
     });
     console.warn(neighborhood);
   }
+  // tslint:disable-next-line: typedef
+  updateneighborHood(id: any, neighborhood: Neighborhood) {
+    this.neighborhoodservice.update(id, neighborhood).subscribe((result) => {
+      console.warn('result', result);
+    });
+    console.warn(id);
+  }
 
   ngOnInit(): void {
   }

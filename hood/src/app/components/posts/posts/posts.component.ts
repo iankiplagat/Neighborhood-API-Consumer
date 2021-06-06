@@ -33,12 +33,12 @@ export class PostsComponent implements OnInit {
     console.warn(posts);
   }
   // tslint:disable-next-line: typedef
-  // updatePosts(id: any, posts: Posts) {
-  //   this.postservice.update(id, posts).subscribe((result) => {
-  //     console.warn('result', result);
-  //   });
-  //   console.warn(id);
-  // }
+  updatePosts(id: any, posts: Posts) {
+    this.postservice.update(id, posts).subscribe((result) => {
+      console.warn('result', result);
+    });
+    console.warn(id);
+  }
   ngOnInit(): void {
   }
 

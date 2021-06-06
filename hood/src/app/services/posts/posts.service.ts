@@ -9,6 +9,9 @@ import { HttpClient } from '@angular/common/http';
 export class PostsService {
 
   url = 'http://127.0.0.1:8000/api/post/';
+  // tslint:disable-next-line: variable-name
+  update_url = 'http://127.0.0.1:8000/api/update/post/';
+
   constructor(private http: HttpClient) {
 
    }
@@ -19,5 +22,9 @@ export class PostsService {
   // tslint:disable-next-line: typedef
   create(posts: any) {
     return this.http.post(this.url, posts);
+  }
+  // tslint:disable-next-line: typedef
+  update(id: any, posts: Posts) {
+    return this.http.put(`${this.update_url}${id}/`, posts);
   }
 }
