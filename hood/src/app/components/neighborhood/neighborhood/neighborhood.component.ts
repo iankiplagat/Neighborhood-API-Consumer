@@ -6,43 +6,46 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-neighborhood',
   templateUrl: './neighborhood.component.html',
-  styleUrls: ['./neighborhood.component.css']
+  styleUrls: ['./neighborhood.component.css'],
 })
 export class NeighborhoodComponent implements OnInit {
+  neighborhood: Neighborhood = {
+    id: '',
+    name: '',
+    neighborhood_desc: '',
+    location: '',
+  };
 
-  neighborhood: Neighborhood[] = [];
+  constructor(
+    private neighborhoodservice: NeighborhoodService,
+    private http: HttpClient
+  ) {}
 
-  constructor(private neighborhoodservice: NeighborhoodService, private http: HttpClient) {
-   }
-
-   // tslint:disable-next-line: typedef
-   findNeighborhood(){
-     this.neighborhoodservice.fetchNeighborhoodApi().subscribe(
-       (res) => {
-          this.neighborhood = res;
-
-     }, error => {
-       console.error(error);
-     }
-     );
-   }
-   // tslint:disable-next-line: typedef
-   onSubmit(neighborhood: any) {
+  // tslint:disable-next-line: typedef
+  findNeighborhood() {
+    this.neighborhoodservice.fetchNeighborhoodApi().subscribe(
+      response => {
+        console.log(response);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  // tslint:disable-next-line: typedef
+  onSubmit(neighborhood: any) {
     this.neighborhoodservice.create(neighborhood).subscribe((result) => {
       console.warn('result', result);
     });
     console.warn(neighborhood);
   }
   // tslint:disable-next-line: typedef
-  updateneighborHood(id: any, neighborhood: Neighborhood) {
-    this.neighborhoodservice.update(id, neighborhood).subscribe((result) => {
+  updateHood(neighborhood: Neighborhood) {
+    this.neighborhoodservice.update(this.neighborhood.id, neighborhood).subscribe((result) => {
       console.warn('result', result);
     });
-    console.warn(id);
+    console.warn(neighborhood.id);
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
-

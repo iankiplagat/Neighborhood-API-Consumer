@@ -1,5 +1,5 @@
 export interface Neighborhood {
-  id: number;
+  id: any;
   name: string;
   neighborhood_desc: string;
   location: string;

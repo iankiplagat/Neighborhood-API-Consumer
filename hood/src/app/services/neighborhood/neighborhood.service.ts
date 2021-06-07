@@ -24,7 +24,7 @@ export class NeighborhoodService {
     return this.http.post(this.url, neighborhood);
   }
   // tslint:disable-next-line: typedef
-  update(id: any, neighborhood: Neighborhood) {
+  update(id: any, neighborhood: Neighborhood): Observable<any>  {
     return this.http.put(`${this.update_url}${id}/`, neighborhood);
   }
 

@@ -10,7 +10,7 @@
   </div>
 
   <div class="row">
-    <div *ngIf="neighborhood.length > 0">
+    <div *ngIf="neighborhood.id">
       <div class="col-md-6">
         <div
           class="card mt-5 p-3 mb-5"
@@ -80,14 +80,6 @@
 
   <div class="margs mt-5 mb-5 col-md-8">
     <form
-      #updateneighborhood="ngForm"
-      (ngSubmit)="
-        updateneighborHood(
-          updateneighborhood.value.id,
-          updateneighborhood.value
-        )
-      "
-      method="POST"
       class="form-control p-3"
     >
       <h5 class="card text-center mb-3">
@@ -100,7 +92,7 @@
           id="post_id"
           type="number"
           name="id"
-          ngModel
+          [(ngModel)] = "neighborhood.id"
           placeholder="Neighborhood Id"
         /><br />
       </div>
@@ -111,7 +103,7 @@
           class="form-control"
           id="name"
           name="name"
-          ngModel
+          [(ngModel)] = "neighborhood.name"
           placeholder="Hood name"
         /><br />
       </div>
@@ -122,7 +114,7 @@
           class="form-control"
           id="content"
           name="neighborhood_desc"
-          ngModel
+          [(ngModel)] = "neighborhood.neighborhood_desc"
           placeholder="Description"
         /><br />
       </div>
@@ -133,12 +125,12 @@
           id="profile"
           type="text"
           name="location"
-          ngModel
+          [(ngModel)] = "neighborhood.location"
           placeholder="Location"
         /><br />
       </div>
 
-      <button type="submit" class="btn btn-info">Submit</button>
+      <button type="submit" (click)="updateHood(neighborhood)" class="btn btn-info">Submit</button>
     </form>
   </div>
 </div>
