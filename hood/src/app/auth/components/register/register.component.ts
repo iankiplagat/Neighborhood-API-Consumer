@@ -1,21 +1,32 @@
+import { AuthService } from './../../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  model: any;
 
-  constructor() { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.model = {
+      username: '',
+      email: '',
+      password: '',
+      password2: '',
+    };
   }
   // tslint:disable-next-line: typedef
-  onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
+  register() {
+    this.authService.register(this.model).subscribe(
+      (response) => {
+        alert('User' + this.model.username + 'has been created');
+      },
+      (error) => console.log('error', error)
+    );
   }
-
 }

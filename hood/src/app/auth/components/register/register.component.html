@@ -2,14 +2,13 @@
   <div class="col-md-6 offset-md-3 mt-4">
     <h3>
       <strong>Create Account</strong>
-      <form #register="ngForm" (ngSubmit)="onSubmit(register)" method="POST">
+      <form>
         <div class="mb-3">
-          <label for="RegisterUsername" class="form-label">Username</label>
+          <label for="username" class="form-label">Username</label>
           <input
+            [(ngModel)]="model.username"
             name="username"
-            ngModel
             required
-            #username="ngModel"
             type="text"
             class="form-control"
             id="loginUsername"
@@ -17,12 +16,11 @@
           />
         </div>
         <div class="mb-3">
-          <label for="RegisterEmail" class="form-label">Email</label>
+          <label for="email" class="form-label">Email</label>
           <input
+            [(ngModel)]="model.email"
             name="email"
-            ngModel
             required
-            #email="ngModel"
             type="email"
             class="form-control"
             id="loginEmail"
@@ -32,18 +30,35 @@
         <div class="mb-3">
           <label for="RegisterPassword" class="form-label">Password</label>
           <input
+            [(ngModel)]="model.password"
             name="password"
-            ngModel
             required
-            #password="ngModel"
             type="password"
             class="form-control"
-            id="registerUsername"
+            id="password"
             placeholder="Password"
           />
         </div>
+        <div class="mb-3">
+          <label for="RegisterPassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            [(ngModel)]="model.password2"
+            name="password2"
+            required
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+          />
+        </div>
 
-        <button type="submit" [disabled]="register.invalid" class="btn btn-info">
+        <button
+          (click)="register()"
+          routerLink="/login"
+          class="btn btn-info"
+        >
           Register <i class="fas fa-sign-in-alt"></i>
         </button>
       </form>
