@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostsService {
 
-  url = 'http://127.0.0.1:8000/api/post/';
+  url = 'https://hood-watch-api.herokuapp.com/api/post/';
   // tslint:disable-next-line: variable-name
-  update_url = 'http://127.0.0.1:8000/api/update/post/';
+  update_url = 'https://hood-watch-api.herokuapp.com/api/update/post/';
 
   constructor(private http: HttpClient) {
 

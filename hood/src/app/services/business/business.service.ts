@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BusinessService {
 
-  url = 'http://127.0.0.1:8000/api/business/';
+  url = 'https://hood-watch-api.herokuapp.com/api/business/';
   // tslint:disable-next-line: variable-name
-  update_url = 'http://127.0.0.1:8000/api/update/business/';
+  update_url = 'https://hood-watch-api.herokuapp.com/api/update/business/';
 
   constructor(private http: HttpClient) { }
 

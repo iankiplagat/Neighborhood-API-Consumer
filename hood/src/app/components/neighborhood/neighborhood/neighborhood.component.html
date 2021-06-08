@@ -10,21 +10,28 @@
   </div>
 
   <div class="row">
-    <div *ngIf="neighborhood.id">
-      <div class="col-md-6">
-        <div
-          class="card mt-5 p-3 mb-5"
-          *ngFor="let neighborhood of neighborhood"
-        >
-          <li class="list pb-3">
-            <strong>{{ neighborhood.name }}</strong>
-          </li>
-          <li class="list">
-            <em>Description</em>: {{ neighborhood.neighborhood_desc }}
-          </li>
-          <li class="list">
-            <em>General Location</em>: {{ neighborhood.location }}
-          </li>
+    <div class="col-6">
+      <div *ngIf="neighbor">
+        <div *ngFor="let neighbor of neighbor">
+          <div
+            class="card mt-5 p-3 mb-5"
+          >
+            <li class="list pb-3">
+              <strong>{{ neighbor.name }}</strong>
+            </li>
+            <li class="list">
+              <em>Description</em>: {{ neighbor.neighborhood_desc }}
+            </li>
+            <li class="list">
+              <em>General Location</em>: {{ neighbor.location }}
+            </li>
+            <li class="list">
+              <em>Heath Center Contacts:</em>: {{ neighbor.health_tell }}
+            </li>
+            <li class="list">
+              <em>Police No.</em>: {{ neighbor.police_number }}
+            </li>
+          </div>
         </div>
       </div>
     </div>
@@ -74,6 +81,28 @@
           placeholder="Location"
         /><br />
       </div>
+      <div class="mb-3">
+        <label for="health_tell" class="form-label">Health Center Info</label>
+        <input
+          type="number"
+          class="form-control"
+          id="health_tell"
+          name="health_tell"
+          ngModel
+          placeholder="Telephone no."
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="police_number" class="form-label">Police Station</label>
+        <input
+          type="number"
+          class="form-control"
+          id="police_number"
+          name="police_number"
+          ngModel
+          placeholder="Police no."
+        /><br />
+      </div>
       <button type="submit" class="btn btn-info">Submit</button>
     </form>
   </div>
@@ -93,7 +122,6 @@
           type="number"
           name="id"
           [(ngModel)] = "neighborhood.id"
-          placeholder="Neighborhood Id"
         /><br />
       </div>
       <div class="mb-3">
@@ -104,7 +132,6 @@
           id="name"
           name="name"
           [(ngModel)] = "neighborhood.name"
-          placeholder="Hood name"
         /><br />
       </div>
       <div class="mb-3">
@@ -115,7 +142,6 @@
           id="content"
           name="neighborhood_desc"
           [(ngModel)] = "neighborhood.neighborhood_desc"
-          placeholder="Description"
         /><br />
       </div>
       <div class="mb-3">
@@ -126,7 +152,26 @@
           type="text"
           name="location"
           [(ngModel)] = "neighborhood.location"
-          placeholder="Location"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="health_tell" class="form-label">Health Center Info</label>
+        <input
+          type="number"
+          class="form-control"
+          id="health_tell"
+          name="health_tell"
+          [(ngModel)] = "neighborhood.health_tell"
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="police_number" class="form-label">Police Station</label>
+        <input
+          type="number"
+          class="form-control"
+          id="police_number"
+          name="police_number"
+          [(ngModel)] = "neighborhood.police_number"
         /><br />
       </div>
 
@@ -134,3 +179,4 @@
     </form>
   </div>
 </div>
+

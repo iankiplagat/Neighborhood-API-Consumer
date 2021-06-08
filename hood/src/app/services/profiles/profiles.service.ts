@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProfilesService {
 
-  url = 'http://127.0.0.1:8000/api/profile/';
+  url = 'https://hood-watch-api.herokuapp.com/api/profile/';
   // tslint:disable-next-line: variable-name
-  update_url = 'http://127.0.0.1:8000/api/update/profile/';
+  update_url = 'https://hood-watch-api.herokuapp.com/api/update/profile/';
   constructor(private http: HttpClient) { }
 
   fetchProfileApi(): Observable<Profile[]> {

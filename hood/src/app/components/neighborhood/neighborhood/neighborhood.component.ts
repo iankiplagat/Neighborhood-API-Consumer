@@ -9,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./neighborhood.component.css'],
 })
 export class NeighborhoodComponent implements OnInit {
+  currentIndex = -1;
+  neighbor!: any;
   neighborhood: Neighborhood = {
     id: '',
     name: '',
     neighborhood_desc: '',
     location: '',
+    health_tell: '',
+    police_number: '',
   };
 
   constructor(
@@ -25,6 +29,7 @@ export class NeighborhoodComponent implements OnInit {
   findNeighborhood() {
     this.neighborhoodservice.fetchNeighborhoodApi().subscribe(
       response => {
+        this.neighbor = response;
         console.log(response);
       },
       (error) => {
