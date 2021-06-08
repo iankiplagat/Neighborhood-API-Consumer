@@ -1,7 +1,18 @@
 .args {
-  height: 70vh;
+  height: 64.3vh;
   width: 100%;
-  background-size:cover;
-  background-position: center;
-  background-image: url('/hood/src/assets/img/bg.jpg');
+  /* background-color: whitesmoke; */
+}
+
+.disp {
+  padding-top: 100px;
+}
+
+.jumbotron {
+  display: block;
+}
+
+.a {
+  text-decoration: none;
+  color: #10caf0;
 }
