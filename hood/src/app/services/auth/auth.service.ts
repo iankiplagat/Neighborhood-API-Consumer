@@ -13,7 +13,7 @@ export class AuthService {
 
   // tslint:disable-next-line: typedef
   login(model: any): Observable<any>{
-    return this.http.post(this.authUrl + `authlogin/`, model);
+    return this.http.post(this.authUrl + `login/`, model);
   }
   register(model: any): Observable<any>{
     return this.http.post(this.authUrl + `register/`, model);
